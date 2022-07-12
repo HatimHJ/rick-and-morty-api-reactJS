@@ -6,15 +6,20 @@ import Filters from "./components/Filters/Filters";
 import Header from "./components/Header";
 import Paginate from "./components/Pagination/Paginate";
 import Search from "./components/Search/Search";
+import { useGlobalContext } from "./context";
 
 function App() {
-  const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
+  const { filter, setFilter, pageNumber, setPageNumber } = useGlobalContext();
   const [data, setData] = useState([]);
   const { info, results } = data;
   console.log("app file line 14", data);
-
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&${
+    filter.status ? `status=${filter.status}` : ""
+  }&${filter.gender ? `gender=${filter.gender}` : ""}&${
+    filter.species ? `species=${filter.species}` : ""
+  }
+  `;
 
   useEffect(() => {
     (async function () {

@@ -1,6 +1,9 @@
 import React from "react";
+import useCategories from "../../../customHooks/useCategories";
+import FilterButton from "../FilterButton";
 
 const Gender = () => {
+  const { gender } = useCategories();
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id="headingTwo">
@@ -18,7 +21,11 @@ const Gender = () => {
         className="accordion-collapse collapse "
         data-bs-parent="#accordionExample"
       >
-        <div className="accordion-body"></div>
+        <div className="accordion-body d-flex gap-3 flex-wrap">
+          {gender.map((item, index) => {
+            return <FilterButton key={index} type="gender" item={item} />;
+          })}
+        </div>
       </div>
     </div>
   );

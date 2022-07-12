@@ -21,16 +21,10 @@ const Status = () => {
         className="accordion-collapse collapse show"
         data-bs-parent="#accordionExample"
       >
-        <div className="accordion-body">
-          <div className="row">
-            {status.map((item, index) => {
-              return (
-                <div className="col-md-6" key={index}>
-                  <FilterButton item={item} />
-                </div>
-              );
-            })}
-          </div>
+        <div className="accordion-body d-flex gap-3 flex-wrap">
+          {status.map((item, index) => {
+            return <FilterButton item={item} type="status" key={index} />;
+          })}
         </div>
       </div>
     </div>

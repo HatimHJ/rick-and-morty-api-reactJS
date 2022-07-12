@@ -1,20 +1,12 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
+import { useGlobalContext } from "../../context";
 
-const Pagination = ({ pageNumber, setPageNumber, info }) => {
-  const prev = () => {
-    if (pageNumber > 1) {
-      setPageNumber(pageNumber - 1);
-    }
-  };
-  const next = () => {
-    if (pageNumber !== info.pages) {
-      setPageNumber(pageNumber + 1);
-    }
-  };
+const Pagination = ({ info }) => {
+  const { pageNumber, setPageNumber } = useGlobalContext();
   return (
     <ReactPaginate
-      // forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
+      forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
       pageCount={info.pages}
       className="pagination "
       pageClassName="page-item mx-2"

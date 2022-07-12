@@ -1,6 +1,10 @@
 import React from "react";
+import FilterButton from "../FilterButton";
+import useCategories from "../../../customHooks/useCategories";
 
-const species = () => {
+const Species = () => {
+  const { species } = useCategories();
+
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id="headingThree">
@@ -21,10 +25,14 @@ const species = () => {
         aria-labelledby="headingThree"
         data-bs-parent="#accordionExample"
       >
-        <div className="accordion-body"></div>
+        <div className="accordion-body d-flex gap-3 flex-wrap">
+          {species.map((item, index) => {
+            return <FilterButton item={item} type="species" key={index} />;
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
-export default species;
+export default Species;

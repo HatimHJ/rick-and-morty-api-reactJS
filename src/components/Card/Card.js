@@ -23,7 +23,14 @@ const Card = ({ char: { gender, id, image, name, type, status, species } }) => {
             </div>
             {/* card header */}
             <div className="card-header ">
-              <h5 className="card-title ">{name}</h5>
+              <h5
+                className="card-title "
+                style={{
+                  fontSize: `${name.length > 20 ? "1.1rem" : "1.25rem"}`,
+                }}
+              >
+                {name}
+              </h5>
               <div className="row">
                 <div className="col-md-5 bg-primary bg-opacity-50 fw-bold text-primary">
                   <p className="card-text">gender</p>

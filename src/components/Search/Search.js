@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useGlobalContext } from "../../context";
 
-const Search = ({ setSearch, setPageNumber }) => {
+const Search = ({ setSearch }) => {
+  const { setPageNumber } = useGlobalContext();
   const [searchText, setSearchText] = useState("");
   const searchHandler = (e) => {
     e.preventDefault();
