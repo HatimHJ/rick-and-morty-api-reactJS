@@ -16,3 +16,36 @@ body {
 .custom-shadow{
   box-shadow : rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.1) 0px 18px 36px -18px inset
 }
+
+
+/* 
+  Bootstrap Override
+*/
+
+button[aria-expanded="true"] > .close{
+  display: none;
+}
+button[aria-expanded="false"] > .open{
+  display: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem;
+}
+
+.ri-lg{
+  line-height: 1;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #0d6efd;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 3px;
+  font-weight: bold;
+}
+
+.App{
+  margin-bottom: 4rem;
+}
