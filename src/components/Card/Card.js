@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Card = ({ char: { gender, id, image, name, type, status, species } }) => {
+const Card = ({ char: { gender, image, name, status, species } }) => {
   return (
     <>
       <div className={`col-md-4 mb-4`}>

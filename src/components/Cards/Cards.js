@@ -5,10 +5,11 @@ import "./Cards.css";
 const Cards = ({ results }) => {
   return (
     <>
-      {results &&
-        results.map((char) => {
-          return <Card key={char.id} char={{ ...char }} />;
-        })}
+      {results
+        ? results.map((char) => {
+            return <Card key={char.id} char={{ ...char }} />;
+          })
+        : "nooooo"}
     </>
   );
 };
