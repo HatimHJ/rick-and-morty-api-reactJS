@@ -56,13 +56,13 @@ const Episodes = () => {
           {/* filter */}
           <div className="col-md-3">
             <h3>Pick Episode</h3>
-            <InputGroup setId={setId} />
+            <InputGroup setId={setId} name="episodes" />
           </div>
           {/* cards */}
           <div className="col-md-9">
             <div className="row">
               {results ? (
-                <Cards results={results} />
+                <Cards page="/episode" results={results} />
               ) : info.error ? (
                 <h2>{info.error}</h2>
               ) : (

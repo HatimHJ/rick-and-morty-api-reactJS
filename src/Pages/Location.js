@@ -3,11 +3,11 @@ import Cards from "../components/Cards/Cards";
 import InputGroup from "../components/Filters/InputGroup";
 
 const Location = () => {
-  const [page, setPage] = useState(1);
+  const [id, setId] = useState(1);
   const [info, setInfo] = useState([]);
   const [results, setResults] = useState([]);
   const { type, name, dimension } = info;
-  const api = `https://rickandmortyapi.com/api/location/${page}`;
+  const api = `https://rickandmortyapi.com/api/location/${id}`;
   console.log(results);
 
   useEffect(() => {
@@ -65,13 +65,13 @@ const Location = () => {
           {/* filter */}
           <div className="col-md-3">
             <h3>Pick Location</h3>
-            {/* <InputGroup setId={setId} /> */}
+            <InputGroup setId={setId} name="location" />
           </div>
           {/* cards */}
           <div className="col-md-9">
             <div className="row">
               {results ? (
-                <Cards results={results} />
+                <Cards page="/location" results={results} />
               ) : info.error ? (
                 <h2>{info.error}</h2>
               ) : (

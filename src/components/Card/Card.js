@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Card = ({ char: { gender, image, name, status, species } }) => {
+const Card = ({ char: { id, gender, image, name, status, species }, page }) => {
   return (
     <>
-      <div className={`col-md-4 mb-4`}>
-        <div className="card mb-4 ">
+      <Link
+        to={`${page}/${id}`}
+        style={{ textDecoration: "none" }}
+        className={`col-md-4 mb-4`}
+      >
+        <div className="card mb-4 text-dark">
           <div className={`card custom-shardow`}>
             {/* image */}
             <div className="image position-relative">
@@ -19,7 +24,7 @@ const Card = ({ char: { gender, image, name, status, species } }) => {
               >
                 {status}
               </span>
-              <img src={image} className="card-img-top" alt={name} />
+              <img src={image} className="card-img-top " alt={name} />
             </div>
             {/* card header */}
             <div className="card-header ">
@@ -50,7 +55,7 @@ const Card = ({ char: { gender, image, name, status, species } }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

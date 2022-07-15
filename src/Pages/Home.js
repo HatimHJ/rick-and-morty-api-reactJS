@@ -36,7 +36,7 @@ function Home() {
           <div className="col-md-9">
             <div className="row">
               {results ? (
-                <Cards results={results} />
+                <Cards page="" results={results} />
               ) : data.error ? (
                 <h2>{data.error}</h2>
               ) : (

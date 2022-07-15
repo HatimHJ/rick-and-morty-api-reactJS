@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const InputGroup = ({ setId }) => {
+const InputGroup = ({ setId, name }) => {
   const [page, setPage] = useState(1);
   const [episodes, setEpisodes] = useState([]);
-  const api = `https://rickandmortyapi.com/api/episode?page=${page}`;
+  const api = `${
+    name === "episodes"
+      ? `https://rickandmortyapi.com/api/episode?page=${page}`
+      : `https://rickandmortyapi.com/api/location?page=${page}`
+  } `;
   useEffect(() => {
     (async function () {
       // get all episode  data

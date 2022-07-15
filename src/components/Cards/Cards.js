@@ -2,12 +2,12 @@ import React from "react";
 import Card from "../Card/Card";
 import "./Cards.css";
 
-const Cards = ({ results }) => {
+const Cards = ({ results, page }) => {
   return (
     <>
       {results
         ? results.map((char) => {
-            return <Card key={char.id} char={{ ...char }} />;
+            return <Card page={page} key={char.id} char={{ ...char }} />;
           })
         : "nooooo"}
     </>
